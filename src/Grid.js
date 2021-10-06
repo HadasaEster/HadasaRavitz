@@ -4,19 +4,28 @@ const Grid = ({ config, data }) => (
   <table>
     <thead>
     <tr>
-      <th>Col 1</th>
-      <th>Col 2</th>
+    {config.map((item, index) => (
+          <th key={index} >
+            {item.title}
+            </th>
+        ))}
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>Data 1</td>
-      <td>Data 2</td>
-    </tr>
-    <tr>
-      <td>Data 1</td>
-      <td>Data 2</td>
-    </tr>
+         
+    {data.map((item, index) => (
+     
+          <tr key={index} >
+
+            {config.map((itemD, indexD) => (
+
+          <th key={indexD} >
+            {item[itemD.field]}
+            </th>
+        ))}
+            </tr>
+        ))}
+ 
     </tbody>
   </table>
 );
